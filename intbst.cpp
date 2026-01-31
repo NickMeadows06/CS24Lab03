@@ -163,17 +163,9 @@ int IntBST::getPredecessor(int value) const{
 
 // returns the Node containing the successor of the given value
 IntBST::Node* IntBST::getSuccessorNode(int value) const{
-    Node *n = getNodeFor(value, root);
-    if (!n) return 0;
-
-    if (n->right) {
-        Node *s = n->right;
-        while (s->left) s = s->left;
-        return s;
-    }
-
-    Node *succ = 0;
     Node *curr = root;
+    Node *succ = 0;
+
     while (curr) {
         if (value < curr->info) {
             succ = curr;
@@ -182,6 +174,7 @@ IntBST::Node* IntBST::getSuccessorNode(int value) const{
             curr = curr->right;
         }
     }
+
     return succ;
 
 
