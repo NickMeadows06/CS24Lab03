@@ -54,9 +54,8 @@ bool IntBST::insert(int value, Node *n) {
 
 // print tree data pre-order
 void IntBST::printPreOrder() const {
-    printPreOrder(root);
-    cout << endl;
-    //cout << "IMPLEMENT printPreOrder public method";; // IMPLEMENT HERE
+    //printPreOrder(root);
+    cout << printPreOrder(root); // IMPLEMENT HERE
 }
 
 // recursive helper for printPreOrder()
@@ -69,8 +68,8 @@ void IntBST::printPreOrder(Node *n) const {
 
 // print tree data in-order, with helper
 void IntBST::printInOrder() const {
-    printInOrder(root);
-    cout << endl;
+    //printInOrder(root);
+    cout << printInOrder(root);
 }
 void IntBST::printInOrder(Node *n) const {
     if(n == nullptr) return;
@@ -82,8 +81,8 @@ void IntBST::printInOrder(Node *n) const {
 
 // prints tree data post-order, with helper
 void IntBST::printPostOrder() const {
-    printPostOrder(root);
-    cout << endl;
+    //printPostOrder(root);
+    cout << printPostOrder(root);
 }
 
 void IntBST::printPostOrder(Node *n) const {
