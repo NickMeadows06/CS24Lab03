@@ -159,34 +159,35 @@ IntBST::Node* IntBST::getPredecessorNode(int value) const{
 
 // returns the predecessor value of the given value or 0 if there is none
 int IntBST::getPredecessor(int value) const{
-    Node *p = getPredecessorNode(value);
-    return p ? p-> info : 0;
+    Node *s = getPredecessorNode(value);
+    return s ? s-> info : 0;
 }
 
 // returns the Node containing the successor of the given value
 IntBST::Node* IntBST::getSuccessorNode(int value) const{
     Node *n = getNodeFor(value, root);
-    Node *succ = 0;
-    Node *curr = root;
+    if (!n) return 0;  
 
-    // Case 1: value is in the tree and has a right subtree
-    if (n && n->right) {
+    if (n->right) {
         Node *s = n->right;
         while (s->left) s = s->left;
         return s;
     }
 
-    // Case 2: general case (works even if value is not in the tree)
+    Node *succ = 0;
+    Node *curr = root;
     while (curr) {
         if (value < curr->info) {
             succ = curr;
             curr = curr->left;
-        } else {
+        } else if (value > curr->info) {
             curr = curr->right;
+        } else {
+            break;
         }
     }
-
     return succ;
+
 }
 
 // returns the successor value of the given value or 0 if there is none
